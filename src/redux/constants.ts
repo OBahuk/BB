@@ -1,0 +1,4 @@
+export const ADD_REQUEST = 'ADD_REQUEST';
+export const REMOVE_REQUEST = 'REMOVE_REQUEST';
+export const RUN_REQUESTS = 'RUN_REQUESTS';
+export const STOP_REQUESTS = 'STOP_REQUESTS';

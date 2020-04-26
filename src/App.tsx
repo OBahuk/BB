@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Page, { Grid, GridColumn } from '@atlaskit/page';
+import { Provider } from 'react-redux';
+
+import store from './redux/store';
+import RequestForm from './components/RequestForm';
+import Header from './components/Header';
+import RequestsList from './components/RequestsList';
+import RunControls from './components/RunControls';
+import { RequestRunner } from './components/RequestRunner';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+            <Page>
+                <Header />
+                <Grid>
+                    <GridColumn>
+                        <RequestForm />
+                        <RequestsList />
+                        <RunControls />
+                    </GridColumn>
+                    <GridColumn>
+                        <RequestRunner />
+                    </GridColumn>
+                </Grid>
+            </Page>
+        </Provider>
+    );
 }
 
 export default App;
